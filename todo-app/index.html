@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="app-header">
+        <h1>Todos</h1>
+        <form id="todo-form" aria-label="Add a new task">
+            <label for="todo-input" class="visually-hidden">New task</label>
+            <input id="todo-input" name="todo" type="text" placeholder="Add a task..." autocomplete="off" required>
+            <button type="submit" aria-label="Add task">Add</button>
+        </form>
+    </header>
+
+    <main>
+        <section aria-labelledby="list-heading" class="todo-section">
+            <div class="toolbar">
+                <h2 id="list-heading">Your tasks</h2>
+                <div class="filters" role="group" aria-label="Filters">
+                    <button data-filter="all" aria-pressed="true">All</button>
+                    <button data-filter="active" aria-pressed="false">Active</button>
+                    <button data-filter="completed" aria-pressed="false">Completed</button>
+                </div>
+            </div>
+            <ul id="todo-list" role="list"></ul>
+            <div class="footer-actions">
+                <span id="items-left" aria-live="polite">0 items left</span>
+                <button id="clear-completed" class="linklike" type="button">Clear completed</button>
+            </div>
+        </section>
+    </main>
+
+    <template id="todo-item-template">
+        <li class="todo-item">
+            <label>
+                <input type="checkbox" class="toggle" aria-label="Toggle complete">
+                <span class="title"></span>
+            </label>
+            <div class="item-actions">
+                <button class="edit" type="button" aria-label="Edit task">Edit</button>
+                <button class="delete" type="button" aria-label="Delete task">Delete</button>
+            </div>
+        </li>
+    </template>
+
+    <script src="app.js" defer></script>
+    <noscript>You need JavaScript to use this app.</noscript>
+    <span class="visually-hidden" aria-live="polite" id="sr-live"></span>
+    
+</body>
+</html>
